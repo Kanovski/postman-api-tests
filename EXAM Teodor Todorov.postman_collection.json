@@ -1,0 +1,259 @@
+{
+	"info": {
+		"_postman_id": "0918aa9c-f9ba-418e-8a3c-7f3055ec2ccc",
+		"name": "EXAM Teodor Todorov",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43535849",
+		"_collection_link": "https://www.postman.com/teodor-514887/workspace/softuni-exe/collection/43535849-0918aa9c-f9ba-418e-8a3c-7f3055ec2ccc?action=share&source=collection_link&creator=43535849"
+	},
+	"item": [
+		{
+			"name": "User reg",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userName\": \"Teodorsk\",\r\n    \"firstName\": \"Ted\",\r\n    \"lastName\": \"Tod\",\r\n    \"email\": \"editor@tedtods.com\",\r\n    \"password\": \"123456\",\r\n    \"rePassword\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/api/User/Register",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"api",
+						"User",
+						"Register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authentication",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\": \"editor@tedtods.com\",\r\n    \"password\": \"123456\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/api/User/Authentication",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"api",
+						"User",
+						"Authentication"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add  Movie",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Bearer token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Water Diviner\",\r\n    \"description\": \"Drama\",\r\n    \"posterUrl\": \"https://upload.wikimedia.org/wikipedia/en/1/1c/The_Water_Diviner_poster.jpg\",\r\n    \"trailerLink\": \"https://www.youtube.com/watch?v=grIiiHuetis&pp=ygUNd2F0ZXIgZGl2aW5lcg%3D%3D\",\r\n    \"isWatched\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/api/Movie/Create",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"api",
+						"Movie",
+						"Create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Movie",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Bearer token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/api/Catalog/All",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"api",
+						"Catalog",
+						"All"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change title",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Bearer token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Russel Crow film\",\r\n    \"description\": \"Drama\",\r\n    \"posterUrl\": \"https://upload.wikimedia.org/wikipedia/en/1/1c/The_Water_Diviner_poster.jpg\",\r\n    \"trailerLink\": \"https://www.youtube.com/watch?v=grIiiHuetis&pp=ygUNd2F0ZXIgZGl2aW5lcg%3D%3D\",\r\n    \"isWatched\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/api/Movie/Edit?movieid=90cc5a7b-7860-47b2-a3e4-08dd71dd43c0",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"api",
+						"Movie",
+						"Edit"
+					],
+					"query": [
+						{
+							"key": "movieid",
+							"value": "90cc5a7b-7860-47b2-a3e4-08dd71dd43c0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Movie",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{Bearer token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/api/Movie/Delete?movieid=90cc5a7b-7860-47b2-a3e4-08dd71dd43c0",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"api",
+						"Movie",
+						"Delete"
+					],
+					"query": [
+						{
+							"key": "movieid",
+							"value": "90cc5a7b-7860-47b2-a3e4-08dd71dd43c0"
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "endpoint",
+			"value": "https://d24hkho2ozf732.cloudfront.net"
+		},
+		{
+			"key": "Bearer token",
+			"value": "{{vault:json-web-token}}\"\n"
+		}
+	]
+}
